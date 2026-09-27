@@ -12,42 +12,60 @@
 .accent {
   color: var(--color-primary);
 }
-.grid {
+
+/* 벤토 그리드 — 대표 특장점(big) 2칸, 나머지 1칸. */
+.bento {
   margin-top: clamp(2rem, 4vw, 3.5rem);
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
 }
 .card {
+  grid-column: span 1;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  padding: 28px 24px;
-  transition: transform var(--dur-normal) var(--ease-out-expo);
+  padding: 26px 22px;
+  transition:
+    transform var(--dur-normal) var(--ease-out-expo),
+    box-shadow var(--dur-normal) var(--ease-out-expo);
 }
 .card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-5px) rotate(-0.6deg);
+  box-shadow: 0 18px 40px rgba(17, 26, 58, 0.1);
 }
-.emoji {
-  font-size: 2.2rem;
+/* big = 2칸 차지 + 옅은 브랜드 배경 */
+.big {
+  grid-column: span 2;
+  background: linear-gradient(140deg, var(--color-primary-soft), var(--color-surface));
+}
+.icon {
+  margin-bottom: 14px;
 }
 .cardTitle {
-  margin-top: 14px;
-  font-size: 1.15rem;
+  font-size: 1.12rem;
   font-weight: 800;
 }
 .cardDesc {
   margin-top: 8px;
   color: var(--color-text-sub);
   font-size: 0.92rem;
-  line-height: 1.65;
+  line-height: 1.6;
 }
 
-@media (max-width: 900px) {
-  .grid {
+@media (max-width: 860px) {
+  .bento {
     grid-template-columns: repeat(2, 1fr);
   }
+  .big {
+    grid-column: span 2;
+  }
 }
-@media (max-width: 560px) {
-  .grid {
+@media (max-width: 520px) {
+  .bento {
     grid-template-columns: 1fr;
+  }
+  .big {
+    grid-column: span 1;
   }
 }

@@ -57,3 +57,35 @@ button {
   margin-inline: auto;
   padding-inline: clamp(1rem, 5vw, 2.5rem);
 }
+
+/* ── 앱 브랜드 재미 요소(app Accents.tsx 이식) ── */
+
+/* Sticker 위글 — deg↔deg+3° 느린 흔들림(앱 1.3s). --deg로 기준각 지정. */
+@keyframes sk-wiggle {
+  0%, 100% { transform: rotate(var(--deg, 6deg)); }
+  50% { transform: rotate(calc(var(--deg, 6deg) + 3deg)); }
+}
+/* Twinkle 반짝임 — opacity 0.2↔1(앱 0.85s). */
+@keyframes sk-twinkle {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+/* HighlightChip 위글 — -2°↔1°(앱). */
+@keyframes sk-chip-wiggle {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(1deg); }
+}
+/* 폰 목업 부유(float) — 은은하게 위아래. */
+@keyframes sk-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.sk-twinkle {
+  position: absolute;
+  border-radius: 50%;
+  animation: sk-twinkle 1.7s ease-in-out infinite;
+}
+.sk-float {
+  animation: sk-float 4s ease-in-out infinite;
+}

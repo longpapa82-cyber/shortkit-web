@@ -1,0 +1,51 @@
+/* Sticker — 앱 point 옐로 pill + 갈색 extraBold, 위글 흔들림. */
+.sticker {
+  display: inline-block;
+  background: var(--color-point);
+  color: #6b4e00;
+  font-weight: 800;
+  font-size: 0.82rem;
+  padding: 7px 12px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 3px 10px rgba(255, 200, 0, 0.35);
+  transform: rotate(var(--deg, 6deg));
+  animation: sk-wiggle 2.6s ease-in-out infinite;
+  white-space: nowrap;
+}
+
+/* LipButton — 3D 눌림(아래 그림자 → hover 시 살짝 뜸 → active 시 눌림). */
+.lip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 32px;
+  border-radius: 16px;
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.05rem;
+  box-shadow: 0 5px 0 var(--color-primary-dark);
+  transition:
+    transform var(--dur-fast) var(--ease-out-expo),
+    box-shadow var(--dur-fast) var(--ease-out-expo);
+  cursor: pointer;
+}
+.lip:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 0 var(--color-primary-dark);
+}
+.lip:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 var(--color-primary-dark);
+}
+.lipPremium {
+  background: var(--color-premium);
+  box-shadow: 0 5px 0 #5b44c0;
+}
+.lipPremium:hover {
+  box-shadow: 0 7px 0 #5b44c0;
+}
+.lipPremium:active {
+  box-shadow: 0 2px 0 #5b44c0;
+}

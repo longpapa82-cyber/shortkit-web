@@ -1,6 +1,14 @@
 .section {
+  position: relative;
+  overflow: hidden;
   padding: var(--space-section) 0;
   background: var(--color-surface);
+}
+.proCta {
+  margin-top: 20px;
+}
+.proCta a {
+  width: 100%;
 }
 .title {
   font-size: var(--text-h2);

@@ -1,12 +1,17 @@
-// Pricing — 확정 비즈니스 모델(business-model.plan.md). Free vs Pro.
+// Pricing — 확정 비즈니스 모델(business-model.plan.md). Free vs Pro + 재미 요소.
 import { useReveal } from '../hooks/useReveal';
 import { PRICING } from '../constants/site';
+import { LipButton, Confetti } from '../components/brand';
 import styles from './Pricing.module.css';
 
 export function Pricing() {
   const ref = useReveal<HTMLElement>();
   return (
     <section ref={ref} className={`reveal ${styles.section}`} id="pricing" aria-labelledby="price-title">
+      {/* 컨페티 장식 */}
+      <Confetti color="var(--color-point)" rotate="24deg" style={{ top: '12%', left: '8%' }} />
+      <Confetti color="var(--color-premium)" size={8} round style={{ top: '20%', right: '10%' }} />
+      <Confetti color="var(--color-success)" rotate="-20deg" style={{ bottom: '16%', left: '14%' }} />
       <div className="container">
         <h2 id="price-title" className={styles.title}>
           부담 없이 시작하세요
@@ -41,6 +46,9 @@ export function Pricing() {
               <li>유형별 핵심 정리</li>
               <li>보관함 · 아낀 시간 기록</li>
             </ul>
+            <div className={styles.proCta}>
+              <LipButton href="#" variant="premium">Pro 시작하기</LipButton>
+            </div>
             <p className={styles.fine}>{PRICING.trialDays}일 무료 체험 · 언제든 해지 가능</p>
           </div>
         </div>

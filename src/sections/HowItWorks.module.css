@@ -39,9 +39,10 @@
   place-items: center;
   box-shadow: 0 3px 0 var(--color-primary-dark);
 }
-.emoji {
-  font-size: 2.6rem;
-  margin-top: 12px;
+.icon {
+  margin-top: 14px;
+  display: flex;
+  justify-content: center;
 }
 .stepTitle {
   margin-top: 14px;
