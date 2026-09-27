@@ -32,6 +32,28 @@
   min-width: 0;
 }
 
+/* 브랜드 배지 — 무대 위 흰 반투명 pill로 앱 이름·아이콘 각인 */
+.brandBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.95rem;
+  padding: 7px 16px 7px 8px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 20px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.brandLogo {
+  display: inline-flex;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+
 /* 무대 위 흰 대담 타이포 */
 .title {
   font-size: var(--text-hero);
@@ -48,8 +70,8 @@
   color: var(--color-text);
   padding: 0 0.28em;
   border-radius: 18px;
-  box-shadow: 0 6px 20px rgba(255, 200, 0, 0.5);
-  animation: sk-chip-wiggle 3s ease-in-out infinite;
+  box-shadow: 0 6px 20px rgba(255, 200, 0, 0.45);
+  transform: rotate(-2deg); /* 정적 기울기(앱 HighlightChip 기본) — 무한 흔들림 제거 */
 }
 .sub {
   margin-top: 22px;

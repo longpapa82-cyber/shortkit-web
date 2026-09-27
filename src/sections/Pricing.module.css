@@ -38,7 +38,8 @@
 }
 .pro {
   border-color: var(--color-premium);
-  box-shadow: 0 16px 40px rgba(124, 92, 255, 0.16);
+  background: linear-gradient(160deg, var(--color-premium-soft) 0%, var(--color-surface) 60%);
+  box-shadow: 0 16px 40px rgba(124, 92, 255, 0.18);
 }
 .badge {
   position: absolute;

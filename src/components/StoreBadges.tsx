@@ -6,7 +6,8 @@ export function StoreBadges() {
   if (!IS_LAUNCHED) {
     return (
       <div className={styles.wrap}>
-        <span className={styles.soon}>🚀 Android 먼저 출시 예정</span>
+        <span className={styles.soon}>App Store 준비중</span>
+        <span className={styles.soon}>Google Play 준비중</span>
       </div>
     );
   }

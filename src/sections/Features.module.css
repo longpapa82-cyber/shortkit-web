@@ -1,6 +1,8 @@
 .section {
+  position: relative;
   padding: var(--space-section) 0;
-  background: var(--color-bg);
+  /* 옅은 옐로 온기 — 앱 point 색 계열 배경 리듬. */
+  background: linear-gradient(180deg, var(--color-surface) 0%, #FFFDF5 100%);
 }
 .title {
   font-size: var(--text-h2);
@@ -34,11 +36,17 @@
   transform: translateY(-5px) rotate(-0.6deg);
   box-shadow: 0 18px 40px rgba(17, 26, 58, 0.1);
 }
-/* big = 2칸 차지 + 옅은 브랜드 배경 */
+/* big = 2칸 차지 */
 .big {
   grid-column: span 2;
-  background: linear-gradient(140deg, var(--color-primary-soft), var(--color-surface));
 }
+
+/* 포인트 tint — 카드 상단 왼쪽에 옅은 색 번짐(앱 포인트 컬러 리듬). */
+.tint_primary { background: linear-gradient(135deg, var(--color-primary-soft), var(--color-surface) 70%); }
+.tint_point { background: linear-gradient(135deg, var(--color-point-soft), var(--color-surface) 70%); }
+.tint_premium { background: linear-gradient(135deg, var(--color-premium-soft), var(--color-surface) 70%); }
+.tint_streak { background: linear-gradient(135deg, var(--color-streak-soft), var(--color-surface) 70%); }
+.tint_success { background: linear-gradient(135deg, var(--color-success-soft, #EAF9F1), var(--color-surface) 70%); }
 .icon {
   margin-bottom: 14px;
 }

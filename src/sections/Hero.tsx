@@ -38,6 +38,16 @@ export function Hero() {
 
       <div className={`container ${styles.inner}`}>
         <div className={styles.copy}>
+          <div className={styles.brandBadge}>
+            <span className={styles.brandLogo}>
+              <svg viewBox="0 0 48 48" width="28" height="28" aria-hidden="true">
+                <rect width="48" height="48" rx="14" fill="#fff" />
+                <path d="M17.6 11.6 L17.6 36.4 L36.8 24 Z" fill="#3182F6" />
+                <path d="M24 18.4 L20.8 24 L23.6 24 L22 30 L27.2 23.2 L24.4 23.2 Z" fill="#fff" />
+              </svg>
+            </span>
+            숏킷 · shortKit
+          </div>
           <h1 className={styles.title}>
             긴 영상,<br />핵심만 <span className={styles.chip}>30초</span>
           </h1>

@@ -11,7 +11,7 @@ export function Gnb() {
     <div className={styles.sticky}>
       <nav className={styles.gnb} aria-label="주요 메뉴">
         <a href={HOME} className={styles.brand} aria-label="숏킷 홈">
-          <BrandLockup size={28} />
+          <BrandLockup size={34} />
         </a>
         <div className={styles.links}>
           <a href={`${HOME}#pricing`}>요금</a>
