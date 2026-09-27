@@ -1,24 +1,51 @@
+/* 진한 파란 무대 — 랜딩 중앙의 강한 시각 앵커(앱 온보딩 무대 감성). */
 .section {
-  padding: var(--space-section) 0;
-  background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-primary-soft) 100%);
+  position: relative;
+  padding: calc(var(--space-section) * 1.1) 0;
+  background: linear-gradient(160deg, #4E9BFF 0%, #3182F6 55%, #2272EB 100%);
   overflow: hidden;
+}
+/* 무대 장식 — 궤도원 + 트윙클(흰) */
+.section::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  right: -60px;
+  width: 320px;
+  height: 320px;
+  border: 2.5px solid rgba(255, 255, 255, 0.14);
+  border-radius: 50%;
+}
+.section::after {
+  content: '';
+  position: absolute;
+  bottom: -100px;
+  left: -70px;
+  width: 260px;
+  height: 260px;
+  border: 2.5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
 }
 .title {
   font-size: var(--text-h2);
   font-weight: 800;
   text-align: center;
   letter-spacing: -0.02em;
+  color: #fff;
+  position: relative;
 }
 .accent {
-  color: var(--color-primary);
+  color: var(--color-point);
 }
 .sub {
   margin-top: 10px;
   text-align: center;
-  color: var(--color-text-sub);
+  color: rgba(255, 255, 255, 0.9);
+  position: relative;
 }
 
 .gallery {
+  position: relative;
   margin-top: clamp(2.5rem, 5vw, 4rem);
   display: flex;
   justify-content: center;
@@ -44,11 +71,15 @@
 .phone {
   width: min(240px, 62vw);
   aspect-ratio: 720 / 1498;
-  background: #111a3a;
+  background: #0b1424;
   border-radius: 30px;
   padding: 8px;
-  box-shadow: 0 24px 50px rgba(17, 26, 58, 0.22);
+  box-shadow: 0 30px 60px rgba(5, 20, 60, 0.4);
+  animation: sk-float 5s ease-in-out infinite;
 }
+/* 좌우 폰은 지연을 다르게 줘 부유가 어긋나게(자연스러움) */
+.item0 .phone { animation-delay: 0.6s; }
+.item2 .phone { animation-delay: 1.2s; }
 .shot {
   width: 100%;
   height: 100%;
@@ -66,11 +97,11 @@
 .capLabel {
   font-weight: 800;
   font-size: 1.05rem;
-  color: var(--color-text);
+  color: #fff;
 }
 .capDesc {
   font-size: 0.88rem;
-  color: var(--color-text-sub);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 /* 태블릿 이하: 가로 스크롤 갤러리 */

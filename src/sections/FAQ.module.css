@@ -1,6 +1,6 @@
 .section {
   padding: var(--space-section) 0;
-  background: var(--color-bg);
+  background: linear-gradient(180deg, var(--color-surface) 0%, #F1FBF6 100%);
 }
 .title {
   font-size: var(--text-h2);

@@ -48,7 +48,19 @@
 .tint_streak { background: linear-gradient(135deg, var(--color-streak-soft), var(--color-surface) 70%); }
 .tint_success { background: linear-gradient(135deg, var(--color-success-soft, #EAF9F1), var(--color-surface) 70%); }
 .icon {
-  margin-bottom: 14px;
+  margin-bottom: 16px;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 18px;
+  box-shadow: 0 4px 14px rgba(17, 26, 58, 0.06);
+}
+.big .icon {
+  width: 76px;
+  height: 76px;
 }
 .cardTitle {
   font-size: 1.12rem;
