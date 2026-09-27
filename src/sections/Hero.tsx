@@ -9,20 +9,36 @@ import styles from './Hero.module.css';
 export function Hero() {
   return (
     <header className={styles.hero}>
-      {/* 파란 브랜드 무대 배경(그라디언트 + 궤도원 + 하단 파도) — 앱 Stage 이식 */}
+      {/* 파란 브랜드 무대 배경(그라디언트 + 광원 + 궤도 + 하단 파도) — 앱 Stage 강화 이식 */}
       <svg className={styles.stage} viewBox="0 0 390 640" preserveAspectRatio="none" aria-hidden="true">
         <defs>
           <linearGradient id="heroStage" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stopColor="#4E9BFF" />
-            <stop offset="0.55" stopColor="#3182F6" />
-            <stop offset="1" stopColor="#2272EB" />
+            <stop offset="0" stopColor="#5BA6FF" />
+            <stop offset="0.5" stopColor="#3182F6" />
+            <stop offset="1" stopColor="#1E63D8" />
           </linearGradient>
+          {/* 부드러운 광원(radial glow) */}
+          <radialGradient id="heroGlow1" cx="50%" cy="50%" r="50%">
+            <stop offset="0" stopColor="#8FC2FF" stopOpacity="0.55" />
+            <stop offset="1" stopColor="#8FC2FF" stopOpacity="0" />
+          </radialGradient>
+          <radialGradient id="heroGlow2" cx="50%" cy="50%" r="50%">
+            <stop offset="0" stopColor="#2461D6" stopOpacity="0.5" />
+            <stop offset="1" stopColor="#2461D6" stopOpacity="0" />
+          </radialGradient>
         </defs>
         <rect width="390" height="640" fill="url(#heroStage)" />
-        <circle cx="360" cy="60" r="150" stroke="rgba(255,255,255,0.16)" strokeWidth="2.5" fill="none" />
-        <circle cx="10" cy="470" r="96" stroke="rgba(255,255,255,0.12)" strokeWidth="2.5" fill="none" />
-        {/* 하단 파도 — 무대→흰 배경 전환 */}
-        <path d="M0 596 Q 98 570 195 592 T 390 588 L390 640 L0 640 Z" fill="var(--color-bg)" />
+        {/* 광원 blob — 깊이감 */}
+        <ellipse cx="80" cy="120" rx="220" ry="180" fill="url(#heroGlow1)" />
+        <ellipse cx="340" cy="420" rx="240" ry="200" fill="url(#heroGlow2)" />
+        {/* 궤도 곡선(다중 호) */}
+        <circle cx="360" cy="60" r="150" stroke="rgba(255,255,255,0.18)" strokeWidth="2.5" fill="none" />
+        <circle cx="360" cy="60" r="210" stroke="rgba(255,255,255,0.1)" strokeWidth="2" fill="none" />
+        <circle cx="10" cy="470" r="96" stroke="rgba(255,255,255,0.14)" strokeWidth="2.5" fill="none" />
+        <circle cx="10" cy="470" r="150" stroke="rgba(255,255,255,0.08)" strokeWidth="2" fill="none" />
+        {/* 하단 파도(이중 레이어) */}
+        <path d="M0 590 Q 98 560 195 586 T 390 582 L390 640 L0 640 Z" fill="#fff" opacity="0.5" />
+        <path d="M0 600 Q 98 572 195 596 T 390 592 L390 640 L0 640 Z" fill="var(--color-bg)" />
       </svg>
 
       <div className={styles.top}>

@@ -80,6 +80,11 @@ button {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
 }
+/* 궤도 링 아주 느린 회전(무대 배경 생동감). */
+@keyframes sk-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 
 .sk-twinkle {
   position: absolute;
