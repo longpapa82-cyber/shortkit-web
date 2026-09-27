@@ -78,48 +78,21 @@ button {
   padding-inline: clamp(1rem, 5vw, 2.5rem);
 }
 
-/* ── 앱 브랜드 재미 요소(app Accents.tsx 이식) ── */
+/* ── 앱 브랜드 재미 요소(app Accents.tsx 이식) ──
+   ⚠️ 전역 keyframes는 전역 "클래스"와 짝으로만 사용할 것.
+   모듈 CSS에서 전역 keyframes를 이름으로 참조하면 CSS Modules가 스코프 처리해
+   조용히 죽는다 — 모듈에서 쓸 keyframes는 그 모듈 안에 로컬 선언. */
 
-/* Sticker 위글 — deg↔deg+3° 느린 흔들림(앱 1.3s). --deg로 기준각 지정. */
-@keyframes sk-wiggle {
-  0%, 100% { transform: rotate(var(--deg, 6deg)); }
-  50% { transform: rotate(calc(var(--deg, 6deg) + 3deg)); }
-}
 /* Twinkle 반짝임 — opacity 0.2↔1(앱 0.85s). */
 @keyframes sk-twinkle {
   0%, 100% { opacity: 0.2; }
   50% { opacity: 1; }
-}
-/* HighlightChip 위글 — -2°↔1°(앱). */
-@keyframes sk-chip-wiggle {
-  0%, 100% { transform: rotate(-2deg); }
-  50% { transform: rotate(1deg); }
-}
-/* 폰 목업 부유(float) — 은은하게 위아래. */
-@keyframes sk-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-/* 궤도 링 아주 느린 회전(무대 배경 생동감). */
-@keyframes sk-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-/* 폰 부유 v2 — translate "개별 프로퍼티" 점유 버전.
-   sk-float(transform 점유)와 달리 정지각 transform: rotate(...)·hover transform을
-   덮어쓰지 않아, 기울어진 폰이 기울기를 유지한 채 부유하고 hover도 공존한다. */
-@keyframes sk-float-y {
-  0%, 100% { translate: 0 0; }
-  50% { translate: 0 -10px; }
 }
 
 .sk-twinkle {
   position: absolute;
   border-radius: 50%;
   animation: sk-twinkle 1.7s ease-in-out infinite;
-}
-.sk-float {
-  animation: sk-float 4s ease-in-out infinite;
 }
 
 /* ── 스크롤 제품 패럴랙스(AiSoftService PromoSection 역이식) ──
@@ -193,7 +166,6 @@ button {
 /* 모션 최소화 — 전역 모션 유틸 전부 정지(정적 배치 유지, 시각 정보 손실 0). */
 @media (prefers-reduced-motion: reduce) {
   .sk-twinkle,
-  .sk-float,
   .sk-parallax,
   .sk-parallax-soft,
   .sk-edge-top,

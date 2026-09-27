@@ -9,8 +9,13 @@
   border-radius: var(--radius-pill);
   box-shadow: 0 3px 10px rgba(255, 200, 0, 0.35);
   transform: rotate(var(--deg, 6deg));
-  animation: sk-wiggle 2.6s ease-in-out infinite;
+  animation: stickerWiggle 2.6s ease-in-out infinite;
   white-space: nowrap;
+}
+/* 위글 — 기준각↔+3° 느린 흔들림(앱 Sticker). 로컬 keyframes(전역 이름 참조는 죽음). */
+@keyframes stickerWiggle {
+  0%, 100% { transform: rotate(var(--deg, 6deg)); }
+  50% { transform: rotate(calc(var(--deg, 6deg) + 3deg)); }
 }
 
 /* LipButton — 3D 눌림(아래 그림자 → hover 시 살짝 뜸 → active 시 눌림). */

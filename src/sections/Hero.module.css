@@ -33,12 +33,18 @@
 }
 
 /* 궤도 링 초저속 공전 — viewBox 중심 기준 회전이라 코너의 링이 무대 위를
-   아주 천천히 떠돈다(AiSoft cosmosOrbit: 55s/40s 역방향 교차). */
+   아주 천천히 떠돈다(AiSoft cosmosOrbit: 55s/40s 역방향 교차).
+   ⚠️ keyframes는 반드시 모듈 로컬로: CSS Modules가 animation 이름을 스코프
+   처리하므로 global.css의 keyframes를 이름으로 참조하면 조용히 죽는다. */
+@keyframes heroSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 .ringSlow,
 .ringRev {
   transform-box: view-box;
   transform-origin: center;
-  animation: sk-spin 55s linear infinite;
+  animation: heroSpin 55s linear infinite;
   will-change: transform;
 }
 .ringRev {
@@ -211,7 +217,11 @@
   z-index: 3;
   transform: rotate(-4deg);
   /* 이속 부유: translate 개별 프로퍼티라 rotate(-4deg) 유지한 채 부유 */
-  animation: sk-float-y 4.5s ease-in-out infinite;
+  animation: heroFloat 4.5s ease-in-out infinite;
+}
+@keyframes heroFloat {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -10px; }
 }
 .phoneBack {
   width: 224px;
@@ -220,7 +230,7 @@
   z-index: 2;
   transform: rotate(6deg);
   opacity: 0.97;
-  animation: sk-float-y 5.4s ease-in-out infinite;
+  animation: heroFloat 5.4s ease-in-out infinite;
 }
 /* hover — 기울기가 펴지며 살짝 들리고 다가옴(만져지는 제품) */
 .phoneFront:hover,
