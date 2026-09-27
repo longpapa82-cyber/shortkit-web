@@ -35,7 +35,7 @@ jobs:
           BASE: /${{ github.event.repository.name }}/
         run: |
           for f in dist/legal/*.html; do
-            sed -i "s|href=\"\.\./\"|href=\"${BASE}\"|g; s|href=\"\.\./favicon.svg\"|href=\"${BASE}favicon.svg\"|g" "$f"
+            sed -i "s|href=\"\.\./#pricing\"|href=\"${BASE}#pricing\"|g; s|href=\"\.\./\"|href=\"${BASE}\"|g; s|href=\"\.\./favicon.svg\"|href=\"${BASE}favicon.svg\"|g" "$f"
           done
       - uses: actions/upload-pages-artifact@v3
         with:

@@ -1,7 +1,7 @@
 .hero {
   position: relative;
   overflow: hidden;
-  padding-bottom: var(--space-section);
+  padding-bottom: calc(var(--space-section) + 40px);
   isolation: isolate;
 }
 
@@ -86,9 +86,17 @@
   margin-top: 16px;
 }
 .note {
-  margin-top: 16px;
+  display: inline-block;
+  margin-top: 18px;
   font-size: var(--text-cap);
-  color: rgba(255, 255, 255, 0.8);
+  font-weight: 600;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
 /* 폰 목업 — 진짜 스크린샷 2개 겹침 tilt */
@@ -141,17 +149,18 @@
     display: flex;
     justify-content: center;
   }
+  /* 모바일: 카피(제목) 먼저 보이고 폰은 아래로(order 제거). */
   .phones {
-    order: -1;
+    margin-top: 24px;
     width: min(360px, 88vw);
-    height: 460px;
+    height: 440px;
   }
   .phoneFront {
-    width: 200px;
+    width: 196px;
     left: 4%;
   }
   .phoneBack {
-    width: 188px;
+    width: 184px;
     right: 2%;
   }
   .stage {

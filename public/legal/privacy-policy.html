@@ -17,29 +17,31 @@
   .note { background: var(--soft); border-left: 4px solid var(--accent); padding: 12px 16px; border-radius: 8px; font-size: .92rem; margin: 14px 0; }
   footer { margin-top: 3rem; color: var(--muted); font-size: .85rem; border-top: 1px solid var(--line); padding-top: 16px; }
   a { color: var(--accent); }
-  /* GNB — 홈 페이지와 동일 시각. 로고 클릭 시 홈으로. */
-  .gnb { display:flex; align-items:center; justify-content:space-between; max-width:760px; margin:0 auto 24px; padding-bottom:14px; border-bottom:1px solid var(--line); }
-  .gnb-brand { display:inline-flex; align-items:center; gap:9px; font-weight:800; font-size:1.05rem; color:var(--ink); text-decoration:none; }
+  /* GNB — 홈(React Gnb)과 픽셀 단위 동일. 로고 34·gap 10·워드마크 24px·메뉴 3개. */
+  .gnb { display:flex; align-items:center; justify-content:space-between; max-width:1120px; margin:0 auto; padding:14px clamp(1rem,5vw,2.5rem); }
+  .gnb-brand { display:inline-flex; align-items:center; gap:10px; font-weight:800; font-size:24px; letter-spacing:-0.02em; color:var(--ink); text-decoration:none; }
   .gnb-brand .dot { color:var(--accent); }
-  .gnb-links { display:flex; gap:18px; }
-  .gnb-links a { font-size:.9rem; font-weight:600; color:var(--muted); text-decoration:none; }
+  .gnb-links { display:flex; gap:22px; }
+  .gnb-links a { font-size:0.95rem; font-weight:600; color:var(--muted); text-decoration:none; transition:color .15s; }
   .gnb-links a:hover { color:var(--accent); }
-  .gnb-logo { width:26px; height:26px; }
+  .gnb-logo { width:34px; height:34px; }
+  .gnb-wrap { border-bottom:1px solid var(--line); margin-bottom:28px; }
 </style>
 </head>
 <body>
+<div class="gnb-wrap">
 <nav class="gnb" aria-label="주요 메뉴">
   <a class="gnb-brand" href="../" aria-label="숏킷 홈">
     <svg class="gnb-logo" viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5BA4FF"/><stop offset="1" stop-color="#2272EB"/></linearGradient></defs><rect width="48" height="48" rx="14" fill="url(#g)"/><path d="M17.6 11.6 L17.6 36.4 L36.8 24 Z" fill="#fff"/><path d="M24 18.4 L20.8 24 L23.6 24 L22 30 L27.2 23.2 L24.4 23.2 Z" fill="#2272EB"/></svg>
     숏킷<span class="dot">.</span>
   </a>
   <div class="gnb-links">
-    <a href="../">홈</a>
+    <a href="../#pricing">요금</a>
     <a href="./privacy-policy.html">개인정보</a>
     <a href="./terms.html">약관</a>
-    <a href="./account-deletion.html">계정삭제</a>
   </div>
 </nav>
+</div>
 <h1>숏킷(shortKit) 개인정보처리방침</h1>
 <p class="meta">시행일: 2026년 9월 27일 · 본 방침은 앱 내 열람 내용과 동일합니다. 변경 시 앱 내에 사전 고지합니다.</p>
 
