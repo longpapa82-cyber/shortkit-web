@@ -17,7 +17,7 @@ export function HowItWorks() {
         <h2 id="how-title" className={styles.title}>
           이렇게 <span className={styles.accent}>3단계</span>면 끝
         </h2>
-        <div className={styles.steps}>
+        <div className={`${styles.steps} stagger`}>
           {STEPS.map((s) => (
             <div key={s.n} className={styles.step}>
               <div className={styles.badge}>{s.n}</div>

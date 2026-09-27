@@ -1,14 +1,34 @@
 .section {
+  position: relative;
+  overflow: hidden;
   padding: var(--space-section) 0;
-  background: linear-gradient(180deg, var(--color-surface) 0%, #F1FBF6 100%);
+  /* 그린 온기 + 도트 + 광원(배경 리듬). */
+  background:
+    radial-gradient(circle at 1px 1px, rgba(18, 183, 106, 0.07) 1px, transparent 0) 0 0 / 26px 26px,
+    radial-gradient(45% 40% at 88% 15%, rgba(18, 183, 106, 0.1) 0%, rgba(18, 183, 106, 0) 55%),
+    linear-gradient(180deg, var(--color-surface) 0%, #F0FAF5 100%);
+}
+/* 좌측 큰 '?' 시각 앵커(은은한 워터마크). */
+.section::before {
+  content: '?';
+  position: absolute;
+  left: -10px;
+  top: 40px;
+  font-size: 260px;
+  font-weight: 800;
+  color: rgba(18, 183, 106, 0.07);
+  line-height: 1;
+  pointer-events: none;
 }
 .title {
+  position: relative;
   font-size: var(--text-h2);
   font-weight: 800;
   text-align: center;
   letter-spacing: -0.02em;
 }
 .list {
+  position: relative;
   margin-top: clamp(2rem, 4vw, 3rem);
   max-width: 720px;
   margin-inline: auto;
@@ -21,6 +41,18 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   padding: 4px 20px;
+  transition:
+    border-color var(--dur-fast),
+    box-shadow var(--dur-normal) var(--ease-out-expo),
+    transform var(--dur-normal) var(--ease-out-expo);
+}
+.item:hover {
+  border-color: var(--color-success);
+  transform: translateX(4px);
+}
+.item[open] {
+  border-color: var(--color-success);
+  box-shadow: 0 10px 26px rgba(18, 183, 106, 0.1);
 }
 .q {
   padding: 18px 0;
@@ -29,27 +61,54 @@
   cursor: pointer;
   list-style: none;
   position: relative;
-  padding-right: 28px;
+  padding-right: 34px;
+  transition: color var(--dur-fast);
+}
+.q:hover {
+  color: var(--color-success);
 }
 .q::-webkit-details-marker {
   display: none;
 }
+/* +/× 토글 — 원형 배경 + 부드러운 회전. */
 .q::after {
   content: '+';
   position: absolute;
   right: 0;
-  top: 16px;
-  font-size: 1.4rem;
-  color: var(--color-primary);
-  font-weight: 400;
-  transition: transform var(--dur-fast);
+  top: 50%;
+  width: 26px;
+  height: 26px;
+  margin-top: -13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--color-success-soft, #eaf9f1);
+  font-size: 1.2rem;
+  color: var(--color-success);
+  font-weight: 600;
+  transition: transform var(--dur-normal) var(--ease-out-expo), background var(--dur-fast);
 }
 .item[open] .q::after {
-  transform: rotate(45deg);
+  transform: rotate(135deg);
+  background: var(--color-success);
+  color: #fff;
 }
+/* 답변 부드러운 등장 */
 .a {
   padding: 0 0 18px;
   color: var(--color-text-sub);
   font-size: 0.95rem;
   line-height: 1.7;
+  animation: faq-open 0.3s var(--ease-out-expo);
+}
+@keyframes faq-open {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }

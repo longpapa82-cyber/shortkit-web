@@ -31,7 +31,7 @@ export function FAQ() {
     <section ref={ref} className={`reveal ${styles.section}`} aria-labelledby="faq-title">
       <div className="container">
         <h2 id="faq-title" className={styles.title}>자주 묻는 질문</h2>
-        <div className={styles.list}>
+        <div className={`${styles.list} stagger`}>
           {QA.map((item) => (
             <details key={item.q} className={styles.item}>
               <summary className={styles.q}>{item.q}</summary>

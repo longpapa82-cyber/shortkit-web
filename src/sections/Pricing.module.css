@@ -2,13 +2,24 @@
   position: relative;
   overflow: hidden;
   padding: var(--space-section) 0;
-  background: var(--color-surface);
+  /* 배경 리듬 — 도트 그리드 + 퍼플/파랑 광원(전환 결정 구간의 임팩트). */
+  background:
+    radial-gradient(circle at 1px 1px, rgba(124, 92, 255, 0.07) 1px, transparent 0) 0 0 / 26px 26px,
+    radial-gradient(50% 45% at 90% 12%, rgba(124, 92, 255, 0.12) 0%, rgba(124, 92, 255, 0) 55%),
+    radial-gradient(45% 40% at 8% 88%, rgba(49, 130, 246, 0.1) 0%, rgba(49, 130, 246, 0) 55%),
+    linear-gradient(180deg, var(--color-surface) 0%, #F7F5FF 100%);
 }
-.proCta {
-  margin-top: 20px;
-}
-.proCta a {
-  width: 100%;
+/* 우상단 궤도 링(무대 언어 연결) */
+.section::before {
+  content: '';
+  position: absolute;
+  top: -110px;
+  right: -90px;
+  width: 300px;
+  height: 300px;
+  border: 2px solid rgba(124, 92, 255, 0.12);
+  border-radius: 50%;
+  box-shadow: 0 0 0 46px rgba(124, 92, 255, 0.05);
 }
 .title {
   font-size: var(--text-h2);
@@ -35,11 +46,29 @@
   border-radius: var(--radius-lg);
   padding: 32px 28px;
   background: var(--color-surface);
+  transition:
+    transform var(--dur-normal) var(--ease-out-expo),
+    box-shadow var(--dur-normal) var(--ease-out-expo);
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 44px rgba(17, 26, 58, 0.1);
 }
 .pro {
   border-color: var(--color-premium);
   background: linear-gradient(160deg, var(--color-premium-soft) 0%, var(--color-surface) 60%);
   box-shadow: 0 16px 40px rgba(124, 92, 255, 0.18);
+}
+.pro:hover {
+  transform: translateY(-8px) rotate(-0.5deg);
+  box-shadow: 0 26px 56px rgba(124, 92, 255, 0.28);
+}
+/* '가장 인기' 스티커 — Pro 카드 우상단 모서리 */
+.proSticker {
+  position: absolute;
+  top: -16px;
+  right: -10px;
+  z-index: 3;
 }
 .badge {
   position: absolute;

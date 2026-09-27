@@ -23,7 +23,7 @@ export function AppShowcase() {
         </h2>
         <p className={styles.sub}>누구나 쉽게 쓸 수 있는 밝고 시원한 디자인</p>
 
-        <div className={styles.gallery}>
+        <div className={`${styles.gallery} stagger`}>
           {SHOTS.map((s, i) => (
             <figure key={s.src} className={`${styles.item} ${styles[`item${i}`]}`}>
               <div className={styles.phone}>

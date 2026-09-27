@@ -1,5 +1,7 @@
-// Footer — 사업자 정보 + 법적 링크(스토어 심사 요건). 법적 페이지는 정적 HTML.
+// Footer — 마무리 CTA(큰 카피+스토어 배지) + 브랜드 강조 + 사업자·법적 링크.
 import { LogoMark } from '../components/LogoMark';
+import { StoreBadges } from '../components/StoreBadges';
+import { Twinkle } from '../components/brand';
 import { BUSINESS_INFO, LEGAL } from '../constants/site';
 import styles from './Footer.module.css';
 
@@ -7,7 +9,23 @@ export function Footer() {
   const b = BUSINESS_INFO;
   return (
     <footer className={styles.footer}>
+      {/* 별 트윙클(다크 배경 위 은은하게) */}
+      <Twinkle size={5} color="#FFC800" delay={0} style={{ top: '14%', left: '10%' }} />
+      <Twinkle size={4} color="#8FC2FF" delay={900} style={{ top: '22%', right: '14%' }} />
+      <Twinkle size={5} color="#fff" delay={1600} style={{ top: '40%', left: '26%' }} />
+
       <div className="container">
+        {/* 마무리 CTA — 마지막 전환 기회 */}
+        <div className={styles.cta}>
+          <LogoMark size={56} />
+          <h2 className={styles.ctaTitle}>
+            긴 영상은 숏킷에게,<br />남는 시간은 당신에게.
+          </h2>
+          <div className={styles.ctaBadges}>
+            <StoreBadges />
+          </div>
+        </div>
+
         <div className={styles.top}>
           <div className={styles.brand}>
             <LogoMark size={28} />

@@ -1,7 +1,33 @@
 .footer {
-  background: var(--color-text);
+  position: relative;
+  overflow: hidden;
+  /* 다크 + 딥블루 광원(cosmos 세계관 살짝). */
+  background:
+    radial-gradient(50% 40% at 80% 0%, rgba(49, 130, 246, 0.25) 0%, rgba(49, 130, 246, 0) 60%),
+    linear-gradient(180deg, #111a3a 0%, #0b1424 100%);
   color: #c8cfdb;
   padding: var(--space-section) 0 3rem;
+}
+
+/* 마무리 CTA — 마지막 전환 기회(큰 카피 + 배지). */
+.cta {
+  text-align: center;
+  padding-bottom: calc(var(--space-section) * 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.ctaTitle {
+  font-size: clamp(1.5rem, 1rem + 2.6vw, 2.4rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  word-break: keep-all;
+}
+.ctaBadges :global(.wrap) {
+  justify-content: center;
 }
 
 .top {

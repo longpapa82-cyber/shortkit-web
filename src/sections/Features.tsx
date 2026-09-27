@@ -21,7 +21,7 @@ export function Features() {
           단순 텍스트 변환이 아니에요.<br />
           <span className={styles.accent}>핵심을 이해</span>해서 정리해요.
         </h2>
-        <div className={styles.bento}>
+        <div className={`${styles.bento} stagger`}>
           {FEATURES.map((f) => (
             <article
               key={f.title}
