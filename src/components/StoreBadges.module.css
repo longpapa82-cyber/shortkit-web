@@ -4,35 +4,40 @@
   flex-wrap: wrap;
 }
 
+/* 컴팩트 배지 — 로고 + (스토어명 / 준비중). 한 줄 배치. */
 .badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 14px 24px;
-  border-radius: var(--radius-pill);
-  background: var(--color-text);
-  color: #fff;
-  font-weight: 700;
-  font-size: 1rem;
+  gap: 10px;
+  padding: 10px 18px;
+  border-radius: 14px;
+  background: #fff;
+  color: var(--color-text);
+  box-shadow: 0 8px 22px rgba(17, 40, 90, 0.16);
   transition: transform var(--dur-fast) var(--ease-out-expo);
+  text-decoration: none;
 }
 .badge:hover {
   transform: translateY(-2px);
 }
-
-.soon {
+.logo {
   display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 15px 26px;
-  border-radius: var(--radius-pill);
-  background: #fff;
-  color: var(--color-primary-dark);
-  font-weight: 800;
-  font-size: 1.02rem;
-  box-shadow: 0 8px 22px rgba(17, 40, 90, 0.16);
-  transition: transform var(--dur-fast) var(--ease-out-expo);
+  color: var(--color-text);
 }
-.soon:hover {
-  transform: translateY(-2px);
+.storeCol {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+.storeName {
+  font-size: 1rem;
+  font-weight: 800;
+}
+.ready {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+.soon {
+  cursor: default;
 }

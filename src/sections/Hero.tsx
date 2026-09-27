@@ -28,14 +28,15 @@ export function Hero() {
           </radialGradient>
         </defs>
         <rect width="390" height="640" fill="url(#heroStage)" />
-        {/* 광원 blob — 깊이감 */}
-        <ellipse cx="80" cy="120" rx="220" ry="180" fill="url(#heroGlow1)" />
-        <ellipse cx="340" cy="420" rx="240" ry="200" fill="url(#heroGlow2)" />
-        {/* 궤도 곡선(다중 호) */}
-        <circle cx="360" cy="60" r="150" stroke="rgba(255,255,255,0.18)" strokeWidth="2.5" fill="none" />
-        <circle cx="360" cy="60" r="210" stroke="rgba(255,255,255,0.1)" strokeWidth="2" fill="none" />
-        <circle cx="10" cy="470" r="96" stroke="rgba(255,255,255,0.14)" strokeWidth="2.5" fill="none" />
-        <circle cx="10" cy="470" r="150" stroke="rgba(255,255,255,0.08)" strokeWidth="2" fill="none" />
+        {/* 광원 blob — 깊이감(App Showcase 패턴과 통일) */}
+        <ellipse cx="70" cy="130" rx="210" ry="180" fill="url(#heroGlow1)" />
+        <ellipse cx="340" cy="440" rx="240" ry="210" fill="url(#heroGlow2)" />
+        {/* 우상단 큰 궤도 링(App Showcase 스타일) — 이중 링 */}
+        <circle cx="378" cy="70" r="170" stroke="rgba(255,255,255,0.2)" strokeWidth="2.5" fill="none" />
+        <circle cx="378" cy="70" r="240" stroke="rgba(255,255,255,0.1)" strokeWidth="2" fill="none" />
+        {/* 좌하단 보조 링 */}
+        <circle cx="6" cy="500" r="110" stroke="rgba(255,255,255,0.13)" strokeWidth="2.5" fill="none" />
+        <circle cx="6" cy="500" r="170" stroke="rgba(255,255,255,0.07)" strokeWidth="2" fill="none" />
         {/* 하단 파도(이중 레이어) */}
         <path d="M0 590 Q 98 560 195 586 T 390 582 L390 640 L0 640 Z" fill="#fff" opacity="0.5" />
         <path d="M0 600 Q 98 572 195 596 T 390 592 L390 640 L0 640 Z" fill="var(--color-bg)" />
@@ -81,13 +82,14 @@ export function Hero() {
 
         {/* 폰 목업 — 진짜 앱 스크린샷(홈 앞 + 결과 뒤 겹침 tilt) */}
         <div className={styles.phones}>
-          <Sticker text="14분 → 30초!" deg={7} style={{ position: 'absolute', top: -10, right: 20, zIndex: 5 }} />
           <div className={`${styles.phone} ${styles.phoneBack}`}>
             <img src={asset('shots/result.webp')} alt="숏킷 30초 요약 결과 화면" width={720} height={1498} loading="eager" />
           </div>
           <div className={`${styles.phone} ${styles.phoneFront} sk-float`}>
             <img src={asset('shots/home.webp')} alt="숏킷 홈 화면" width={720} height={1498} loading="eager" />
           </div>
+          {/* 스티커 — 폰 그룹 우상단 명확한 위치(앞 폰 어깨 위) */}
+          <Sticker text="14분 → 30초!" deg={7} style={{ position: 'absolute', top: -6, right: 4, zIndex: 5 }} />
         </div>
       </div>
     </header>

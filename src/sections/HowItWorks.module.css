@@ -1,8 +1,29 @@
 .section {
+  position: relative;
   padding: var(--space-section) 0;
-  background: linear-gradient(180deg, var(--color-primary-soft) 0%, var(--color-surface) 100%);
+  overflow: hidden;
+  /* 옅은 파랑 배경 + 도트 그리드 + 광원(밋밋함 탈피). */
+  background:
+    radial-gradient(circle at 1px 1px, rgba(49, 130, 246, 0.1) 1px, transparent 0) 0 0 / 26px 26px,
+    radial-gradient(50% 40% at 85% 10%, rgba(255, 200, 0, 0.12) 0%, rgba(255, 200, 0, 0) 60%),
+    radial-gradient(45% 40% at 10% 90%, rgba(124, 92, 255, 0.1) 0%, rgba(124, 92, 255, 0) 60%),
+    linear-gradient(180deg, var(--color-primary-soft) 0%, var(--color-surface) 60%);
+}
+/* 우상단 궤도 링(무대 톤 연결) */
+.section::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  right: -100px;
+  width: 340px;
+  height: 340px;
+  border: 2px solid rgba(49, 130, 246, 0.1);
+  border-radius: 50%;
+  box-shadow: 0 0 0 50px rgba(49, 130, 246, 0.04);
 }
 .title {
+  position: relative;
+  z-index: 1;
   font-size: var(--text-h2);
   font-weight: 800;
   text-align: center;
@@ -12,6 +33,8 @@
   color: var(--color-primary);
 }
 .steps {
+  position: relative;
+  z-index: 1;
   margin-top: clamp(2rem, 4vw, 3.5rem);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
