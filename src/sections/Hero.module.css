@@ -134,6 +134,13 @@
   transform: rotate(6deg);
   opacity: 0.97;
 }
+/* 스티커 — 뒤 폰 우상단 모서리에 붙임(폰과 겹쳐 맥락 형성). */
+.sticker {
+  position: absolute;
+  top: 44px;
+  right: 0;
+  z-index: 6;
+}
 
 @media (max-width: 900px) {
   .inner {

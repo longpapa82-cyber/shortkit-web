@@ -88,8 +88,10 @@ export function Hero() {
           <div className={`${styles.phone} ${styles.phoneFront} sk-float`}>
             <img src={asset('shots/home.webp')} alt="숏킷 홈 화면" width={720} height={1498} loading="eager" />
           </div>
-          {/* 스티커 — 폰 그룹 우상단 명확한 위치(앞 폰 어깨 위) */}
-          <Sticker text="14분 → 30초!" deg={7} style={{ position: 'absolute', top: -6, right: 4, zIndex: 5 }} />
+          {/* 스티커 — 뒤 폰(결과 화면) 우상단 모서리에 붙임(붕 뜨지 않게) */}
+          <span className={styles.sticker}>
+            <Sticker text="14분 → 30초!" deg={7} />
+          </span>
         </div>
       </div>
     </header>
