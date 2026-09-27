@@ -83,8 +83,9 @@ export function Hero() {
           <p className={styles.note}>하루 3회 무료 · Pro는 무제한·광고 없이</p>
         </div>
 
-        {/* 폰 목업 — 진짜 앱 스크린샷(홈 앞 + 결과 뒤 겹침 tilt) */}
-        <div className={styles.phones}>
+        {/* 폰 목업 — 진짜 앱 스크린샷(홈 앞 + 결과 뒤 겹침 tilt).
+            sk-parallax: 스크롤 따라 스택 전체가 미세 드리프트·회전·접근(내부 정지각과 축분리). */}
+        <div className={`${styles.phones} sk-parallax`}>
           <div className={`${styles.phone} ${styles.phoneBack}`}>
             <img src={asset('shots/result.webp')} alt="숏킷 30초 요약 결과 화면" width={720} height={1498} loading="eager" />
           </div>

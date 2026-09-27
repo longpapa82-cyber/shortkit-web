@@ -33,7 +33,7 @@ export function AppShowcase() {
 
         <div className={`${styles.gallery} stagger`}>
           {SHOTS.map((s, i) => (
-            <figure key={s.src} className={`${styles.item} ${styles[`item${i}`]}`}>
+            <figure key={s.src} className={`${styles.item} ${styles[`item${i}`]} sk-parallax`}>
               <div className={styles.phone}>
                 <img
                   className={styles.shot}

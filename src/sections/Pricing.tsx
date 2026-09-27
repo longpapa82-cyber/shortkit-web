@@ -23,7 +23,7 @@ export function Pricing() {
 
         <div className={`${styles.plans} stagger`}>
           {/* Free */}
-          <div className={styles.card}>
+          <div className={`${styles.card} sk-parallax-soft`}>
             <div className={styles.planName}>Free</div>
             <div className={styles.price}>₩0</div>
             <ul className={styles.list}>
@@ -35,7 +35,7 @@ export function Pricing() {
           </div>
 
           {/* Pro — 인기 스티커 + 체험 배지 */}
-          <div className={`${styles.card} ${styles.pro}`}>
+          <div className={`${styles.card} ${styles.pro} sk-parallax-soft`}>
             <span className={styles.proSticker}>
               <Sticker text="⭐ 가장 인기" deg={-6} />
             </span>

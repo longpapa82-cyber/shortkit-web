@@ -114,3 +114,49 @@ button {
 .sk-float {
   animation: sk-float 4s ease-in-out infinite;
 }
+
+/* ── 스크롤 제품 패럴랙스(AiSoftService PromoSection 역이식) ──
+   animation-timeline: view() — 스크롤 위치에 직결되는 CSS 네이티브 연출(JS 0).
+   3축 분리: translate/rotate/scale "개별 프로퍼티"를 keyframes가 각각 점유 →
+   기존 transform:(정지각·hover·stagger 등장)과 축이 달라 상호 덮어쓰기 없음.
+   미지원 브라우저는 animation 무시 = 정적 폴백(무해).
+   linear 고정(스크롤에 정직 연동), 진폭 상한 ±10px/±1.5°/1.02(팝업 광고 톤 방지). */
+@keyframes sk-drift {
+  from { translate: 0 10px; }
+  to { translate: 0 -10px; }
+}
+@keyframes sk-turn {
+  from { rotate: 1.5deg; }
+  to { rotate: -1.5deg; }
+}
+@keyframes sk-zoom {
+  from { scale: 0.965; }
+  to { scale: 1.02; }
+}
+/* 제품 비주얼(폰 목업)용 — 3축 전부. */
+.sk-parallax {
+  animation:
+    sk-drift linear both,
+    sk-turn linear both,
+    sk-zoom linear both;
+  animation-timeline: view(), view(), view();
+  animation-range: entry 12% exit 88%;
+}
+/* 텍스트 많은 카드용 절제 버전 — 드리프트 없이 회전·줌만(hover translateY와 중복 방지). */
+.sk-parallax-soft {
+  animation:
+    sk-turn linear both,
+    sk-zoom linear both;
+  animation-timeline: view(), view();
+  animation-range: entry 12% exit 88%;
+}
+
+/* 모션 최소화 — 전역 모션 유틸 전부 정지(정적 배치 유지, 시각 정보 손실 0). */
+@media (prefers-reduced-motion: reduce) {
+  .sk-twinkle,
+  .sk-float,
+  .sk-parallax,
+  .sk-parallax-soft {
+    animation: none;
+  }
+}
