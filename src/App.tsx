@@ -1,4 +1,5 @@
 // 숏킷 홍보 웹 — Hero + P1 섹션(How It Works/Features/Pricing/FAQ) + Footer.
+import { ScrollProgress } from './components/ScrollProgress';
 import { Hero } from './sections/Hero';
 import { HowItWorks } from './sections/HowItWorks';
 import { Features } from './sections/Features';
@@ -10,6 +11,7 @@ import { Footer } from './sections/Footer';
 export function App() {
   return (
     <>
+      <ScrollProgress />
       <Hero />
       <main>
         <HowItWorks />

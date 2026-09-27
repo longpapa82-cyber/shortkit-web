@@ -3,10 +3,13 @@
 import { Gnb } from '../components/Gnb';
 import { StoreBadges } from '../components/StoreBadges';
 import { Sticker, Twinkle } from '../components/brand';
+import { useCountUp } from '../hooks/useCountUp';
 import { asset } from '../constants/site';
 import styles from './Hero.module.css';
 
 export function Hero() {
+  // '30초' 브랜드 숫자 카운트업(로드 시 1회, reduced-motion은 즉시 30).
+  const sec = useCountUp(30, 900, 400);
   return (
     <header className={styles.hero}>
       {/* 파란 브랜드 무대 배경(그라디언트 + 광원 + 궤도 + 하단 파도) — 앱 Stage 강화 이식 */}
@@ -66,7 +69,7 @@ export function Hero() {
             숏킷 · shortKit
           </div>
           <h1 className={styles.title}>
-            긴 영상,<br />핵심만 <span className={styles.chip}>30초</span>
+            긴 영상,<br />핵심만 <span className={styles.chip}>{sec}초</span>
           </h1>
           <p className={styles.sub}>
             링크만 붙여넣으면 AI가 대신 봐드려요.<br />

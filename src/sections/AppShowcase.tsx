@@ -14,6 +14,14 @@ export function AppShowcase() {
   const ref = useReveal<HTMLElement>();
   return (
     <section ref={ref} className={`reveal ${styles.section}`} aria-labelledby="showcase-title">
+      {/* 상단 파도 — 이전 섹션(color-bg)에서 파란 무대로 전환(Hero 파도 언어). */}
+      <svg className={styles.waveTop} viewBox="0 0 390 24" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 0 L390 0 L390 6 Q 292 26 195 8 T 0 12 Z" fill="var(--color-bg)" />
+      </svg>
+      {/* 하단 파도 — 파란 무대에서 다음 섹션(surface)으로 전환. */}
+      <svg className={styles.waveBottom} viewBox="0 0 390 24" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 24 L390 24 L390 16 Q 292 -2 195 14 T 0 10 Z" fill="var(--color-surface)" />
+      </svg>
       <Twinkle size={9} color="var(--color-point)" delay={0} style={{ top: '14%', left: '16%' }} />
       <Twinkle size={7} color="#fff" delay={600} style={{ top: '22%', right: '20%' }} />
       <Twinkle size={8} color="#7DE3AE" delay={1100} style={{ bottom: '24%', left: '24%' }} />

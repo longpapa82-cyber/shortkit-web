@@ -66,6 +66,9 @@
 }
 .chip {
   display: inline-block;
+  min-width: 2.35em; /* 카운트업 중 자릿수 변화로 폭 흔들림 방지 */
+  text-align: center;
+  font-variant-numeric: tabular-nums;
   background: var(--color-point);
   color: var(--color-text);
   padding: 0 0.28em;
