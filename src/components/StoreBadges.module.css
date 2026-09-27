@@ -1,0 +1,33 @@
+.wrap {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 24px;
+  border-radius: var(--radius-pill);
+  background: var(--color-text);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: transform var(--dur-fast) var(--ease-out-expo);
+}
+.badge:hover {
+  transform: translateY(-2px);
+}
+
+.soon {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: var(--radius-pill);
+  background: var(--color-primary-soft);
+  color: var(--color-primary-dark);
+  font-weight: 700;
+  font-size: 0.98rem;
+}

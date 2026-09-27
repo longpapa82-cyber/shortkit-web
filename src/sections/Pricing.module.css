@@ -1,0 +1,112 @@
+.section {
+  padding: var(--space-section) 0;
+  background: var(--color-surface);
+}
+.title {
+  font-size: var(--text-h2);
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: -0.02em;
+}
+.sub {
+  margin-top: 10px;
+  text-align: center;
+  color: var(--color-text-sub);
+}
+.plans {
+  margin-top: clamp(2rem, 4vw, 3rem);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 340px));
+  gap: 20px;
+  justify-content: center;
+  align-items: stretch;
+}
+.card {
+  position: relative;
+  border: 1.6px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  background: var(--color-surface);
+}
+.pro {
+  border-color: var(--color-premium);
+  box-shadow: 0 16px 40px rgba(124, 92, 255, 0.16);
+}
+.badge {
+  position: absolute;
+  top: -13px;
+  left: 28px;
+  background: var(--color-premium);
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.82rem;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+}
+.planName {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--color-text-sub);
+}
+.pro .planName {
+  color: var(--color-premium);
+}
+.price {
+  margin-top: 8px;
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.per {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+.yearly {
+  margin-top: 4px;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+.list {
+  margin-top: 20px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.list li {
+  padding-left: 26px;
+  position: relative;
+  font-size: 0.98rem;
+}
+.list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+  font-weight: 800;
+}
+.pro .list li::before {
+  color: var(--color-premium);
+}
+.muted {
+  color: var(--color-text-muted);
+}
+.muted::before {
+  color: var(--color-text-muted) !important;
+  content: '•' !important;
+}
+.fine {
+  margin-top: 18px;
+  font-size: 0.82rem;
+  color: var(--color-premium);
+  font-weight: 600;
+}
+
+@media (max-width: 760px) {
+  .plans {
+    grid-template-columns: 1fr;
+    max-width: 380px;
+    margin-inline: auto;
+  }
+}

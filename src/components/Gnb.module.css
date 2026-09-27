@@ -1,0 +1,42 @@
+.gnb {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px clamp(1.25rem, 5vw, 2.5rem);
+  max-width: 1120px;
+  margin-inline: auto;
+}
+/* 스크롤해도 상단 고정 — 요금·로고 항상 접근(전환 유지). 반투명+블러. */
+.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(242, 244, 246, 0.82);
+  backdrop-filter: saturate(180%) blur(12px);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid transparent;
+}
+.brand {
+  display: inline-flex;
+}
+.links {
+  display: flex;
+  gap: 22px;
+}
+.links a {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text-sub);
+  transition: color var(--dur-fast);
+}
+.links a:hover {
+  color: var(--color-primary);
+}
+@media (max-width: 520px) {
+  .links {
+    gap: 16px;
+  }
+  .links a {
+    font-size: 0.88rem;
+  }
+}
