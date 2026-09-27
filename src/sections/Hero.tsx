@@ -31,15 +31,15 @@ export function Hero() {
           </radialGradient>
         </defs>
         <rect width="390" height="640" fill="url(#heroStage)" />
-        {/* 광원 blob — 깊이감(App Showcase 패턴과 통일) */}
-        <ellipse cx="70" cy="130" rx="210" ry="180" fill="url(#heroGlow1)" />
-        <ellipse cx="340" cy="440" rx="240" ry="210" fill="url(#heroGlow2)" />
-        {/* 우상단 큰 궤도 링(App Showcase 스타일) — 이중 링 */}
-        <circle cx="378" cy="70" r="170" stroke="rgba(255,255,255,0.2)" strokeWidth="2.5" fill="none" />
-        <circle cx="378" cy="70" r="240" stroke="rgba(255,255,255,0.1)" strokeWidth="2" fill="none" />
+        {/* 광원 blob — 깊이감(App Showcase 패턴과 통일) + 20s 드리프트(무대가 숨쉼) */}
+        <ellipse className={styles.glowA} cx="70" cy="130" rx="210" ry="180" fill="url(#heroGlow1)" />
+        <ellipse className={styles.glowB} cx="340" cy="440" rx="240" ry="210" fill="url(#heroGlow2)" />
+        {/* 우상단 큰 궤도 링(App Showcase 스타일) — 이중 링 + 초저속 공전(AiSoft cosmosOrbit 이식) */}
+        <circle className={styles.ringSlow} cx="378" cy="70" r="170" stroke="rgba(255,255,255,0.2)" strokeWidth="2.5" fill="none" />
+        <circle className={styles.ringRev} cx="378" cy="70" r="240" stroke="rgba(255,255,255,0.1)" strokeWidth="2" fill="none" />
         {/* 좌하단 보조 링 */}
-        <circle cx="6" cy="500" r="110" stroke="rgba(255,255,255,0.13)" strokeWidth="2.5" fill="none" />
-        <circle cx="6" cy="500" r="170" stroke="rgba(255,255,255,0.07)" strokeWidth="2" fill="none" />
+        <circle className={styles.ringRev} cx="6" cy="500" r="110" stroke="rgba(255,255,255,0.13)" strokeWidth="2.5" fill="none" />
+        <circle className={styles.ringSlow} cx="6" cy="500" r="170" stroke="rgba(255,255,255,0.07)" strokeWidth="2" fill="none" />
         {/* 하단 파도(이중 레이어) */}
         <path d="M0 590 Q 98 560 195 586 T 390 582 L390 640 L0 640 Z" fill="#fff" opacity="0.5" />
         <path d="M0 600 Q 98 572 195 596 T 390 592 L390 640 L0 640 Z" fill="var(--color-bg)" />
@@ -75,6 +75,21 @@ export function Hero() {
             링크만 붙여넣으면 AI가 대신 봐드려요.<br />
             자막이 없어도 음성까지 읽어 핵심만 정리해요.
           </p>
+          {/* 글래스 통계 칩(AiSoft highlight 이식) — 실측 수치만, 백드롭 블러 유리질 */}
+          <ul className={styles.stats}>
+            <li className={styles.stat}>
+              <strong>30초</strong>
+              <span>핵심 요약</span>
+            </li>
+            <li className={styles.stat}>
+              <strong>자막 없어도</strong>
+              <span>음성 인식 요약</span>
+            </li>
+            <li className={styles.stat}>
+              <strong>3일</strong>
+              <span>무료체험</span>
+            </li>
+          </ul>
           {/* 출시 전이라 '무료로 시작하기'(설치 유도)는 갈 곳이 없어 제거.
               스토어 배지를 주 CTA로 승격(정직한 '준비중' 안내). */}
           <div className={styles.badgesRow}>

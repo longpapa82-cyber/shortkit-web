@@ -15,6 +15,37 @@
   z-index: -1;
 }
 
+/* 광원 blob 드리프트 — 무대가 천천히 숨쉬는 느낌(AiSoft promo-cosmos-glow 이식).
+   SVG 자식이라 fill-box 기준 자기 중심 변형. transform/opacity만(컴포지터). */
+.glowA,
+.glowB {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: heroGlowDrift 20s ease-in-out infinite alternate;
+  will-change: transform, opacity;
+}
+.glowB {
+  animation-direction: alternate-reverse;
+}
+@keyframes heroGlowDrift {
+  from { transform: translate(-8px, -6px) scale(1); opacity: 0.8; }
+  to { transform: translate(10px, 8px) scale(1.08); opacity: 1; }
+}
+
+/* 궤도 링 초저속 공전 — viewBox 중심 기준 회전이라 코너의 링이 무대 위를
+   아주 천천히 떠돈다(AiSoft cosmosOrbit: 55s/40s 역방향 교차). */
+.ringSlow,
+.ringRev {
+  transform-box: view-box;
+  transform-origin: center;
+  animation: sk-spin 55s linear infinite;
+  will-change: transform;
+}
+.ringRev {
+  animation-duration: 40s;
+  animation-direction: reverse;
+}
+
 .top {
   /* GNB를 무대 위 흰색 톤으로 */
   position: relative;
@@ -82,8 +113,41 @@
   color: rgba(255, 255, 255, 0.92);
   line-height: 1.7;
 }
+/* 글래스 통계 칩 — 블루 무대 위 반투명 유리질(AiSoft #promo-shortkit .highlight 이식) */
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 16px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 24px rgba(15, 60, 140, 0.18);
+}
+.stat strong {
+  font-size: 1.05rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: #fff;
+}
+.stat span {
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: #dbe8ff;
+}
+
 .badgesRow {
-  margin-top: 30px;
+  margin-top: 26px;
 }
 .note {
   display: inline-block;
@@ -185,6 +249,9 @@
   }
   .badgesRow :global(.wrap) {
     display: flex;
+    justify-content: center;
+  }
+  .stats {
     justify-content: center;
   }
   /* 모바일: 카피(제목) 먼저 보이고 폰은 아래로(order 제거). */

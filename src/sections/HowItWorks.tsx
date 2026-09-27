@@ -13,6 +13,8 @@ export function HowItWorks() {
   const ref = useReveal<HTMLElement>();
   return (
     <section ref={ref} className={`reveal ${styles.section}`} aria-labelledby="how-title">
+      {/* 하단 경계 크로스페이드 — Features(color-bg)와의 평면 경계를 녹임 */}
+      <span className="sk-edge sk-edge-bottom" style={{ ['--edge-bg' as string]: '#EEF4FE' }} aria-hidden="true" />
       <div className="container">
         <h2 id="how-title" className={styles.title}>
           이렇게 <span className={styles.accent}>3단계</span>면 끝

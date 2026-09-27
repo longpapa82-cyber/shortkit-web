@@ -158,12 +158,46 @@ button {
   animation-range: entry 12% exit 88%;
 }
 
+/* ── 섹션 경계 크로스페이드(AiSoft promoEdgeFade 이식) ──
+   자기 배경색(--edge-bg)을 경계에서 그라디언트로 깔고, 스크롤 진입/이탈 시
+   opacity 페이드인 → 다크↔라이트 칼선이 "무대 조명 교체"처럼 녹는다.
+   파도 경계가 없는 평면 경계에만 사용(파도는 브랜드 언어라 유지).
+   미지원 브라우저 = 정적 페더(경계 완화는 유지, 손실 0). */
+@keyframes sk-edge-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.sk-edge {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: clamp(2.5rem, 5vw, 4.5rem);
+  pointer-events: none;
+  z-index: 0;
+}
+.sk-edge-top {
+  top: 0;
+  background: linear-gradient(to bottom, var(--edge-bg) 0%, transparent 100%);
+  animation: sk-edge-fade linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 40%;
+}
+.sk-edge-bottom {
+  bottom: 0;
+  background: linear-gradient(to top, var(--edge-bg) 0%, transparent 100%);
+  animation: sk-edge-fade linear both;
+  animation-timeline: view();
+  animation-range: exit 60% exit 100%;
+}
+
 /* 모션 최소화 — 전역 모션 유틸 전부 정지(정적 배치 유지, 시각 정보 손실 0). */
 @media (prefers-reduced-motion: reduce) {
   .sk-twinkle,
   .sk-float,
   .sk-parallax,
-  .sk-parallax-soft {
+  .sk-parallax-soft,
+  .sk-edge-top,
+  .sk-edge-bottom {
     animation: none;
   }
 }

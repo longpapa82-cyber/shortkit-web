@@ -8,6 +8,8 @@ export function Pricing() {
   const ref = useReveal<HTMLElement>();
   return (
     <section ref={ref} className={`reveal ${styles.section}`} id="pricing" aria-labelledby="price-title">
+      {/* 하단 경계 크로스페이드 — FAQ와의 평면 경계를 녹임 */}
+      <span className="sk-edge sk-edge-bottom" style={{ ['--edge-bg' as string]: '#F7F5FF' }} aria-hidden="true" />
       {/* 컨페티·트윙클 장식(포인트 컬러) */}
       <Confetti color="var(--color-point)" rotate="24deg" style={{ top: '12%', left: '8%' }} />
       <Confetti color="var(--color-premium)" size={8} round style={{ top: '20%', right: '10%' }} />

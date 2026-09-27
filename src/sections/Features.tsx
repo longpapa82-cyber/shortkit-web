@@ -16,6 +16,8 @@ export function Features() {
   const ref = useReveal<HTMLElement>();
   return (
     <section ref={ref} className={`reveal ${styles.section}`} aria-labelledby="feat-title">
+      {/* 상단 경계 크로스페이드 — HowItWorks와의 평면 경계를 녹임 */}
+      <span className="sk-edge sk-edge-top" style={{ ['--edge-bg' as string]: 'var(--color-bg)' }} aria-hidden="true" />
       <div className="container">
         <h2 id="feat-title" className={styles.title}>
           단순 텍스트 변환이 아니에요.<br />

@@ -29,6 +29,9 @@ export function FAQ() {
   const ref = useReveal<HTMLElement>();
   return (
     <section ref={ref} className={`reveal ${styles.section}`} aria-labelledby="faq-title">
+      {/* 상·하단 경계 크로스페이드 — Pricing/Footer와의 평면 경계를 녹임 */}
+      <span className="sk-edge sk-edge-top" style={{ ['--edge-bg' as string]: 'var(--color-surface)' }} aria-hidden="true" />
+      <span className="sk-edge sk-edge-bottom" style={{ ['--edge-bg' as string]: '#F0FAF5' }} aria-hidden="true" />
       <div className="container">
         <h2 id="faq-title" className={styles.title}>자주 묻는 질문</h2>
         <div className={`${styles.list} stagger`}>

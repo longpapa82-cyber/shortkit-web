@@ -9,6 +9,8 @@ export function Footer() {
   const b = BUSINESS_INFO;
   return (
     <footer className={styles.footer}>
+      {/* 상단 경계 크로스페이드 — 라이트(FAQ)→다크 전환을 조명 교체처럼 */}
+      <span className="sk-edge sk-edge-top" style={{ ['--edge-bg' as string]: '#111a3a' }} aria-hidden="true" />
       {/* 별 트윙클(다크 배경 위 은은하게) */}
       <Twinkle size={5} color="#FFC800" delay={0} style={{ top: '14%', left: '10%' }} />
       <Twinkle size={4} color="#8FC2FF" delay={900} style={{ top: '22%', right: '14%' }} />
@@ -42,6 +44,9 @@ export function Footer() {
           {b.name} · 대표 {b.ceo} · 사업자등록번호 {b.regNo} · {b.mailOrder}
           <br />
           {b.address} · {b.email}
+        </p>
+        <p className={styles.disclaimer}>
+          AI 요약 결과는 참고용이며, 원본 영상의 내용과 다를 수 있어요. 중요한 정보는 원본 영상에서 확인하세요.
         </p>
         <p className={styles.copy}>© 2026 {b.name}. All rights reserved.</p>
       </div>
