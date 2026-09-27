@@ -87,9 +87,11 @@ export function Hero() {
             sk-parallax: 스크롤 따라 스택 전체가 미세 드리프트·회전·접근(내부 정지각과 축분리). */}
         <div className={`${styles.phones} sk-parallax`}>
           <div className={`${styles.phone} ${styles.phoneBack}`}>
+            <span className={styles.notch} aria-hidden="true" />
             <img src={asset('shots/result.webp')} alt="숏킷 30초 요약 결과 화면" width={720} height={1498} loading="eager" />
           </div>
-          <div className={`${styles.phone} ${styles.phoneFront} sk-float`}>
+          <div className={`${styles.phone} ${styles.phoneFront}`}>
+            <span className={styles.notch} aria-hidden="true" />
             <img src={asset('shots/home.webp')} alt="숏킷 홈 화면" width={720} height={1498} loading="eager" />
           </div>
           {/* 스티커 — 뒤 폰(결과 화면) 우상단 모서리에 붙임(붕 뜨지 않게) */}

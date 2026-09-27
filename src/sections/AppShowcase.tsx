@@ -35,6 +35,7 @@ export function AppShowcase() {
           {SHOTS.map((s, i) => (
             <figure key={s.src} className={`${styles.item} ${styles[`item${i}`]} sk-parallax`}>
               <div className={styles.phone}>
+                <span className={styles.notch} aria-hidden="true" />
                 <img
                   className={styles.shot}
                   src={s.src}

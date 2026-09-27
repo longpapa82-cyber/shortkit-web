@@ -105,6 +105,13 @@ button {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+/* 폰 부유 v2 — translate "개별 프로퍼티" 점유 버전.
+   sk-float(transform 점유)와 달리 정지각 transform: rotate(...)·hover transform을
+   덮어쓰지 않아, 기울어진 폰이 기울기를 유지한 채 부유하고 hover도 공존한다. */
+@keyframes sk-float-y {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -10px; }
+}
 
 .sk-twinkle {
   position: absolute;
