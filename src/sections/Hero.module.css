@@ -79,11 +79,8 @@
   color: rgba(255, 255, 255, 0.92);
   line-height: 1.7;
 }
-.cta {
-  margin-top: 28px;
-}
 .badgesRow {
-  margin-top: 16px;
+  margin-top: 30px;
 }
 .note {
   display: inline-block;
@@ -144,7 +141,6 @@
     text-align: center;
     justify-items: center;
   }
-  .cta,
   .badgesRow :global(.wrap) {
     display: flex;
     justify-content: center;

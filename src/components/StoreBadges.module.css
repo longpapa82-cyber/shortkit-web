@@ -24,10 +24,15 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 22px;
+  padding: 15px 26px;
   border-radius: var(--radius-pill);
-  background: var(--color-primary-soft);
+  background: #fff;
   color: var(--color-primary-dark);
-  font-weight: 700;
-  font-size: 0.98rem;
+  font-weight: 800;
+  font-size: 1.02rem;
+  box-shadow: 0 8px 22px rgba(17, 40, 90, 0.16);
+  transition: transform var(--dur-fast) var(--ease-out-expo);
+}
+.soon:hover {
+  transform: translateY(-2px);
 }

@@ -77,11 +77,62 @@ export const IconBolt = ({ size }: P) => (
   </S>
 );
 
-/** 링크(붙여넣기). */
+/** 링크(붙여넣기) — 두 개의 사슬 고리. */
 export const IconLink = ({ size }: P) => (
   <S size={size}>
     <circle cx={24} cy={24} r={20} fill="#E8F3FF" />
-    <path d="M20 28 L28 20 M19 22 A5 5 0 0 0 19 30 L22 33 M29 26 A5 5 0 0 1 29 18 L26 15"
-      stroke="#3182F6" strokeWidth={2.8} strokeLinecap="round" fill="none" />
+    <rect x={13} y={19} width={14} height={10} rx={5} stroke="#3182F6" strokeWidth={3} fill="none" transform="rotate(-30 20 24)" />
+    <rect x={21} y={19} width={14} height={10} rx={5} stroke="#2272EB" strokeWidth={3} fill="none" transform="rotate(-30 28 24)" />
+  </S>
+);
+
+/** AI 분석 — 두뇌/스캔(원 안에 노드·연결). */
+export const IconBrain = ({ size }: P) => (
+  <S size={size}>
+    <circle cx={24} cy={24} r={20} fill="#EFEAFF" />
+    <circle cx={24} cy={24} r={11} stroke="#7C5CFF" strokeWidth={2.6} fill="none" />
+    <circle cx={24} cy={17.5} r={2.6} fill="#7C5CFF" />
+    <circle cx={18} cy={27} r={2.6} fill="#7C5CFF" />
+    <circle cx={30} cy={27} r={2.6} fill="#FFC800" />
+    <path d="M24 17.5 L18 27 M24 17.5 L30 27 M18 27 L30 27" stroke="#7C5CFF" strokeWidth={1.8} />
+  </S>
+);
+
+/** 요약 문서 — 문서 + 체크(핵심 정리). */
+export const IconSummary = ({ size }: P) => (
+  <S size={size}>
+    <circle cx={24} cy={24} r={20} fill="#E8F3FF" />
+    <rect x={15} y={13} width={18} height={22} rx={3} fill="#fff" stroke="#3182F6" strokeWidth={2.2} />
+    <path d="M19 20 H27 M19 24 H29 M19 28 H25" stroke="#8B95A1" strokeWidth={2} strokeLinecap="round" />
+    <circle cx={31} cy={31} r={6} fill="#12B76A" />
+    <path d="M28.5 31 L30.3 32.8 L33.5 29.5" stroke="#fff" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" fill="none" />
+  </S>
+);
+
+/** 음성/마이크(자막 없어도 음성 인식). */
+export const IconMic = ({ size }: P) => (
+  <S size={size}>
+    <circle cx={24} cy={24} r={20} fill="#EAF9F1" />
+    <rect x={20} y={12} width={8} height={16} rx={4} fill="#12B76A" />
+    <path d="M15 24 A9 9 0 0 0 33 24" stroke="#27AE7F" strokeWidth={2.4} fill="none" strokeLinecap="round" />
+    <path d="M24 33 V37 M20 37 H28" stroke="#27AE7F" strokeWidth={2.4} strokeLinecap="round" />
+  </S>
+);
+
+/** 보관함(북마크/저장). */
+export const IconBookmark = ({ size }: P) => (
+  <S size={size}>
+    <circle cx={24} cy={24} r={20} fill="#EFEAFF" />
+    <path d="M17 13 h14 a2 2 0 0 1 2 2 v21 l-9 -5 -9 5 v-21 a2 2 0 0 1 2 -2 Z" fill="#7C5CFF" />
+    <path d="M17 13 h14 a2 2 0 0 1 2 2 v3 h-18 v-3 a2 2 0 0 1 2 -2 Z" fill="#9B7CFF" />
+  </S>
+);
+
+/** 재생(원본 영상). */
+export const IconPlay = ({ size }: P) => (
+  <S size={size}>
+    <circle cx={24} cy={24} r={20} fill="#E8F3FF" />
+    <rect x={12} y={15} width={24} height={18} rx={4} fill="#3182F6" />
+    <path d="M21 21 L28 24 L21 27 Z" fill="#fff" />
   </S>
 );

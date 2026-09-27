@@ -2,7 +2,7 @@
 // (홈+결과 겹침 tilt) + 옐로 트윙클/스파클 폭발 + 흰 대담 타이포. app onboarding/login 무대 감성.
 import { Gnb } from '../components/Gnb';
 import { StoreBadges } from '../components/StoreBadges';
-import { Sticker, Twinkle, LipButton } from '../components/brand';
+import { Sticker, Twinkle } from '../components/brand';
 import { asset } from '../constants/site';
 import styles from './Hero.module.css';
 
@@ -55,9 +55,8 @@ export function Hero() {
             링크만 붙여넣으면 AI가 대신 봐드려요.<br />
             자막이 없어도 음성까지 읽어 핵심만 정리해요.
           </p>
-          <div className={styles.cta}>
-            <LipButton href="#pricing">무료로 시작하기</LipButton>
-          </div>
+          {/* 출시 전이라 '무료로 시작하기'(설치 유도)는 갈 곳이 없어 제거.
+              스토어 배지를 주 CTA로 승격(정직한 '준비중' 안내). */}
           <div className={styles.badgesRow}>
             <StoreBadges />
           </div>
