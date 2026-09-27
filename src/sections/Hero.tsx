@@ -34,15 +34,19 @@ export function Hero() {
         {/* 광원 blob — 깊이감(App Showcase 패턴과 통일) + 20s 드리프트(무대가 숨쉼) */}
         <ellipse className={styles.glowA} cx="70" cy="130" rx="210" ry="180" fill="url(#heroGlow1)" />
         <ellipse className={styles.glowB} cx="340" cy="440" rx="240" ry="210" fill="url(#heroGlow2)" />
-        {/* 우상단 큰 궤도 링(App Showcase 스타일) — 이중 링 + 초저속 공전(AiSoft cosmosOrbit 이식) */}
-        <circle className={styles.ringSlow} cx="378" cy="70" r="170" stroke="rgba(255,255,255,0.2)" strokeWidth="2.5" fill="none" />
-        <circle className={styles.ringRev} cx="378" cy="70" r="240" stroke="rgba(255,255,255,0.1)" strokeWidth="2" fill="none" />
-        {/* 좌하단 보조 링 */}
-        <circle className={styles.ringRev} cx="6" cy="500" r="110" stroke="rgba(255,255,255,0.13)" strokeWidth="2.5" fill="none" />
-        <circle className={styles.ringSlow} cx="6" cy="500" r="170" stroke="rgba(255,255,255,0.07)" strokeWidth="2" fill="none" />
         {/* 하단 파도(이중 레이어) */}
         <path d="M0 590 Q 98 560 195 586 T 390 582 L390 640 L0 640 Z" fill="#fff" opacity="0.5" />
         <path d="M0 600 Q 98 572 195 596 T 390 592 L390 640 L0 640 Z" fill="var(--color-bg)" />
+      </svg>
+
+      {/* 궤도 링 — 무대와 분리된 별도 SVG(AiSoft cosmosOrbit 동일 좌표계).
+          무대 SVG는 preserveAspectRatio="none"이라 원이 타원으로 찌그러지므로,
+          링은 xMidYMid slice(균등 확대·크롭)로 정원 유지 + viewBox 중심 공전. */}
+      <svg className={styles.orbit} viewBox="0 0 1000 600" fill="none" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <circle className={styles.ringSlow} cx="820" cy="120" r="300" stroke="rgba(255,255,255,0.16)" strokeWidth="2.5" />
+        <circle className={styles.ringRev} cx="820" cy="120" r="420" stroke="rgba(255,255,255,0.09)" strokeWidth="2" />
+        <circle className={styles.ringRev} cx="120" cy="300" r="360" stroke="rgba(255,255,255,0.1)" strokeWidth="2" />
+        <circle className={styles.ringSlow} cx="60" cy="560" r="220" stroke="rgba(255,255,255,0.13)" strokeWidth="2.5" />
       </svg>
 
       <div className={styles.top}>

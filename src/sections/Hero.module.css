@@ -52,6 +52,16 @@
   animation-direction: reverse;
 }
 
+/* 궤도 링 오버레이 — 무대 위·콘텐츠 아래. slice라 어느 화면비에서도 정원. */
+.orbit {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
 .top {
   /* GNB를 무대 위 흰색 톤으로 */
   position: relative;
