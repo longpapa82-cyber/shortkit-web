@@ -39,7 +39,7 @@ export function Pricing() {
           {/* Pro — 인기 스티커 + 체험 배지 */}
           <div className={`${styles.card} ${styles.pro} sk-parallax-soft`}>
             <span className={styles.proSticker}>
-              <Sticker text="⭐ 가장 인기" deg={-6} />
+              <Sticker text="⭐ 추천" deg={-6} />
             </span>
             <div className={styles.badge}>3일 무료 체험</div>
             <div className={styles.planName}>Pro</div>
