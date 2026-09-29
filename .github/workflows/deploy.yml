@@ -1,0 +1,52 @@
+name: Deploy (GitHub Pages)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Build
+        run: npm run build
+        env:
+          VITE_BASE: /${{ github.event.repository.name }}/
+      # 법적 정적 HTML의 상대 홈/파비콘 링크를 배포 base 절대경로로 확정
+      # (상대경로 ../ 의 기준점 모호·캐시 문제 제거 → 로고 클릭 시 확실히 홈으로).
+      - name: Fix legal page links to absolute base
+        env:
+          BASE: /${{ github.event.repository.name }}/
+        run: |
+          for f in dist/legal/*.html; do
+            sed -i "s|href=\"\.\./#pricing\"|href=\"${BASE}#pricing\"|g; s|href=\"\.\./\"|href=\"${BASE}\"|g; s|href=\"\.\./favicon.svg\"|href=\"${BASE}favicon.svg\"|g" "$f"
+          done
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
