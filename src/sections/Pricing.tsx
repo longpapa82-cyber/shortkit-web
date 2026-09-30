@@ -43,11 +43,27 @@ export function Pricing() {
             </span>
             <div className={styles.badge}>3일 무료 체험</div>
             <div className={styles.planName}>Pro</div>
-            <div className={styles.price}>
-              {PRICING.monthly}
-              <span className={styles.per}> / 월</span>
+            {/* 월간·연간을 동급 상품 옵션 2행으로 표기(연간이 각주처럼 묻히던 문제 해결) */}
+            <div className={styles.options}>
+              <div className={styles.option}>
+                <span className={styles.optLabel}>월간</span>
+                <span className={styles.optPrice}>
+                  {PRICING.monthly}
+                  <span className={styles.per}> /월</span>
+                </span>
+              </div>
+              <div className={`${styles.option} ${styles.optionBest}`}>
+                <span className={styles.optLabel}>
+                  연간
+                  <span className={styles.saveBadge}>약 37% 할인</span>
+                </span>
+                <span className={styles.optPrice}>
+                  {PRICING.yearly}
+                  <span className={styles.per}> /년</span>
+                  <span className={styles.optSub}>월 약 {PRICING.yearlyPerMonth}</span>
+                </span>
+              </div>
             </div>
-            <div className={styles.yearly}>연간 {PRICING.yearly} (월 약 {PRICING.yearlyPerMonth})</div>
             <ul className={styles.list}>
               <li><b>무제한 요약</b></li>
               <li><b>광고 없이</b> 바로 요약</li>

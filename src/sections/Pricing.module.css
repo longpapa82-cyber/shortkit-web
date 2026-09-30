@@ -100,9 +100,59 @@
   font-weight: 600;
   color: var(--color-text-muted);
 }
-.yearly {
-  margin-top: 4px;
-  font-size: 0.9rem;
+/* 월간·연간 상품 옵션 2행 — 연간을 동급 상품으로 표기 */
+.options {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  border: 1.4px solid var(--color-border);
+  border-radius: var(--radius-md, 14px);
+  background: var(--color-surface);
+}
+.optionBest {
+  border-color: var(--color-premium);
+  background: var(--color-premium-soft);
+}
+.optLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--color-text-sub);
+  white-space: nowrap;
+}
+.optionBest .optLabel {
+  color: var(--color-premium);
+}
+.saveBadge {
+  background: var(--color-premium);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 3px 9px;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+}
+.optPrice {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-align: right;
+  line-height: 1.2;
+}
+.optSub {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
   color: var(--color-text-muted);
 }
 .list {
