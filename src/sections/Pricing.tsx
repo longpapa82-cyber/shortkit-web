@@ -47,14 +47,18 @@ export function Pricing() {
               {PRICING.monthly}
               <span className={styles.per}> / 월</span>
             </div>
-            <div className={styles.yearly}>연간 {PRICING.yearly} (월 약 ₩2,417)</div>
+            <div className={styles.yearly}>연간 {PRICING.yearly} (월 약 {PRICING.yearlyPerMonth})</div>
             <ul className={styles.list}>
               <li><b>무제한 요약</b></li>
               <li><b>광고 없이</b> 바로 요약</li>
               <li>유형별 핵심 정리</li>
               <li>보관함 · 아낀 시간 기록</li>
             </ul>
-            <p className={styles.fine}>{PRICING.trialDays}일 무료 체험 · 언제든 해지 가능 · 앱에서 구독</p>
+            <p className={styles.fine}>
+              {PRICING.trialDays}일 무료 체험 · 언제든 해지 가능 · 앱에서 구독
+              <br />
+              App Store 기준 가격 · 실제 결제 금액은 앱 내 표시를 따라요
+            </p>
           </div>
         </div>
       </div>

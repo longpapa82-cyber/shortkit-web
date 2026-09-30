@@ -22,10 +22,12 @@ export const APP = {
   package: 'com.shortkit.app',
 } as const;
 
-// 요금(business-model.plan.md 확정, 표시용)
+// 요금(business-model.plan.md 확정, 표시용) — iOS 우선 출시라 iOS(App Store) 정가 기준.
+// Android 출시 시 플랫폼별 가격(₩3,900/₩29,000) 병기 재검토. 실제 결제가는 앱 내 스토어 표시가 우선.
 export const PRICING = {
-  monthly: '₩3,900',
-  yearly: '₩29,000',
+  monthly: '₩4,400',
+  yearly: '₩33,000',
+  yearlyPerMonth: '₩2,750', // 33,000 ÷ 12
   trialDays: 3,
   freeDaily: 3,
 } as const;
