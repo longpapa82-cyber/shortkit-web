@@ -94,8 +94,7 @@ export function Hero() {
               <span>무료체험</span>
             </li>
           </ul>
-          {/* 출시 전이라 '무료로 시작하기'(설치 유도)는 갈 곳이 없어 제거.
-              스토어 배지를 주 CTA로 승격(정직한 '준비중' 안내). */}
+          {/* iOS 출시 완료 — 스토어 배지가 주 CTA(App Store 다운로드 활성, Google Play는 준비중). */}
           <div className={styles.badgesRow}>
             <StoreBadges />
           </div>

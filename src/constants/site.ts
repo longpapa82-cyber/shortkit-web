@@ -1,10 +1,14 @@
-// 사이트 상수 — 스토어 URL·사업자 정보. 출시 후 스토어 URL 주입.
+// 사이트 상수 — 스토어 URL·사업자 정보.
 // 사업자 정보는 앱 legal.ts와 동일(단일 소스: 에이아이소프트).
 
-// ⚠️ 출시 전: 스토어 미등록이라 placeholder. 등록 후 실제 URL로 교체.
-export const PLAY_STORE_URL = ''; // 예: https://play.google.com/store/apps/details?id=com.shortkit.app
-export const APP_STORE_URL = ''; // 예: https://apps.apple.com/kr/app/id...
-export const IS_LAUNCHED = false; // true면 스토어 배지 활성, false면 "출시 예정"
+// iOS 출시 완료(App Store, 2026-10-03). Apple ID 6816935944 / 번들 com.shortkit.app.
+export const APP_STORE_URL = 'https://apps.apple.com/kr/app/id6816935944';
+// Android 미출시 — 등록 후 실제 URL 주입. 예: https://play.google.com/store/apps/details?id=com.shortkit.app
+export const PLAY_STORE_URL = '';
+
+// 플랫폼별 출시 상태 — 배지 활성(링크)/준비중 분기에 사용.
+export const IOS_LAUNCHED = true; // App Store 출시됨
+export const ANDROID_LAUNCHED = false; // Google Play 미출시("준비중" 유지)
 
 export const BUSINESS_INFO = {
   name: '에이아이소프트',

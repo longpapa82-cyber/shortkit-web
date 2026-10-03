@@ -1,5 +1,6 @@
 // 스토어 배지 — 애플/구글 로고 + 스토어명 + 작은 '준비중' 뱃지. 한 줄 배치.
-import { PLAY_STORE_URL, APP_STORE_URL, IS_LAUNCHED } from '../constants/site';
+// 플랫폼별 출시 상태(iOS 출시 / Android 준비중)를 각 배지가 개별 반영.
+import { PLAY_STORE_URL, APP_STORE_URL, IOS_LAUNCHED, ANDROID_LAUNCHED } from '../constants/site';
 import styles from './StoreBadges.module.css';
 
 const AppleLogo = () => (
@@ -17,27 +18,37 @@ const GoogleLogo = () => (
   </svg>
 );
 
-function Badge({ Logo, store, href }: { Logo: () => JSX.Element; store: string; href: string }) {
+function Badge({ Logo, store, href, launched }: { Logo: () => JSX.Element; store: string; href: string; launched: boolean }) {
   const content = (
     <>
       <span className={styles.logo}><Logo /></span>
       <span className={styles.storeCol}>
         <span className={styles.storeName}>{store}</span>
-        {!IS_LAUNCHED && <span className={styles.ready}>준비중</span>}
+        {!launched && <span className={styles.ready}>준비중</span>}
       </span>
     </>
   );
-  if (IS_LAUNCHED && href) {
-    return <a className={styles.badge} href={href} target="_blank" rel="noopener noreferrer">{content}</a>;
+  if (launched && href) {
+    return (
+      <a
+        className={styles.badge}
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`${store}에서 숏킷 다운로드`}
+      >
+        {content}
+      </a>
+    );
   }
-  return <span className={`${styles.badge} ${styles.soon}`}>{content}</span>;
+  return <span className={`${styles.badge} ${styles.soon}`} aria-label={`${store} 출시 준비중`}>{content}</span>;
 }
 
 export function StoreBadges() {
   return (
     <div className={styles.wrap}>
-      <Badge Logo={AppleLogo} store="App Store" href={APP_STORE_URL} />
-      <Badge Logo={GoogleLogo} store="Google Play" href={PLAY_STORE_URL} />
+      <Badge Logo={AppleLogo} store="App Store" href={APP_STORE_URL} launched={IOS_LAUNCHED} />
+      <Badge Logo={GoogleLogo} store="Google Play" href={PLAY_STORE_URL} launched={ANDROID_LAUNCHED} />
     </div>
   );
 }
