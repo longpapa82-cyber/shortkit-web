@@ -3,12 +3,16 @@
 
 // iOS 출시 완료(App Store, 2026-10-03). Apple ID 6816935944 / 번들 com.shortkit.app.
 export const APP_STORE_URL = 'https://apps.apple.com/kr/app/id6816935944';
-// Android 미출시 — 등록 후 실제 URL 주입. 예: https://play.google.com/store/apps/details?id=com.shortkit.app
+// Android 앱 프로덕션 출시됨(2026-11-16, versionCode 9). 공개 Play URL 전파 확인 후 주입:
+// 'https://play.google.com/store/apps/details?id=com.shortkit.app'
+// 🔴 전파 전 빈 문자열 유지 — 배지가 깨진 링크로 노출되지 않게(ANDROID_LAUNCHED와 함께 전환).
 export const PLAY_STORE_URL = '';
 
 // 플랫폼별 출시 상태 — 배지 활성(링크)/준비중 분기에 사용.
 export const IOS_LAUNCHED = true; // App Store 출시됨
-export const ANDROID_LAUNCHED = false; // Google Play 미출시("준비중" 유지)
+// 🔴 앱은 출시됐으나 공개 Play URL 전파 확인 전까지 false 유지(배지 "준비중").
+//    전파 확인 시 true + 위 PLAY_STORE_URL 주입 → Google Play 배지 자동 활성화(2단계).
+export const ANDROID_LAUNCHED = false;
 
 export const BUSINESS_INFO = {
   name: '에이아이소프트',
@@ -26,8 +30,8 @@ export const APP = {
   package: 'com.shortkit.app',
 } as const;
 
-// 요금(business-model.plan.md 확정, 표시용) — iOS 우선 출시라 iOS(App Store) 정가 기준.
-// Android 출시 시 플랫폼별 가격(₩3,900/₩29,000) 병기 재검토. 실제 결제가는 앱 내 스토어 표시가 우선.
+// 요금(표시용) — App Store·Google Play 동일가(둘 다 ₩4,400/월·₩33,000/연, 2026-11 확인).
+// 실제 결제가는 앱 내 스토어 표시가 우선.
 export const PRICING = {
   monthly: '₩4,400',
   yearly: '₩33,000',

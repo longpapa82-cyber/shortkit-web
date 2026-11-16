@@ -73,7 +73,7 @@ export function Pricing() {
             <p className={styles.fine}>
               {PRICING.trialDays}일 무료 체험 · 언제든 해지 가능 · 앱에서 구독
               <br />
-              App Store 기준 가격 · 실제 결제 금액은 앱 내 표시를 따라요
+              App Store·Google Play 기준 가격 · 실제 결제 금액은 앱 내 표시를 따라요
             </p>
           </div>
         </div>
