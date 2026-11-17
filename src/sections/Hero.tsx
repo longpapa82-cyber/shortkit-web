@@ -94,8 +94,7 @@ export function Hero() {
               <span>무료체험</span>
             </li>
           </ul>
-          {/* 스토어 배지가 주 CTA. 활성/준비중은 site.ts 플래그(IOS_LAUNCHED/ANDROID_LAUNCHED)로 분기.
-              Android 앱은 출시됨 — Play 공개 URL 전파 확인 후 ANDROID_LAUNCHED=true로 배지 활성화 예정. */}
+          {/* 스토어 배지가 주 CTA. App Store·Google Play 모두 출시 완료(2026-11, 양 배지 활성 링크). */}
           <div className={styles.badgesRow}>
             <StoreBadges />
           </div>
